@@ -1,0 +1,51 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+    },
+    "source": {
+        "include": ["./src/stubs"]
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "referenceTitle": "ConnexCS Webphone Documentation",
+        "disableSort": false,
+        "collapse": true,
+        "resources": {
+            "google": "https://docs.connexcs.com/"
+        }
+    },
+    "opts": {
+        "destination": "./docs/",
+        "encoding": "utf8",
+        "private": true,
+        "recurse": true,
+		"template": "node_modules/docdash"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+	"docdash": {
+        "meta": {
+            "title": "ConnexCS Webphone Docs",
+            "description": "Documentation for ConnexCS Webphone"
+        },
+		"menu": {
+            "Home Page": {
+                "href":"https://www.connexcs.com",
+                "target":"_blank",
+                "class":"menu-item",
+                "id":"home_page"
+            },
+            "Webphone Documentation": {
+                "href":"https://docs.connexcs.com/webphone/",
+                "target":"_blank",
+                "class":"menu-item",
+                "id":"main_docs"
+            }
+		}
+	}
+}

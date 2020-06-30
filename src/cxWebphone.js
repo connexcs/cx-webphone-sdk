@@ -1,9 +1,24 @@
+/**
+ * cxWebphone
+ * 
+ * @module cxWebphone
+ * @namespace cxWebphone
+ * @class
+ * @hideconstructor
+ * @classdesc ConnexCS Webphone SDK Connector
+ * 
+ * ## Example ##
+ * ```
+ * var phone = cxWebphone('myId', 'https://webphone.mydomain.com');
+ * ```
+ */
+
 export default function cxWebphone (containerId, src) {
 	const promiseCallback = {};
 	var containerId = null;
 	var container = null
 	var src = null;
-	init();
+	_init();
 
 	return { config, on, provision, invite, stop, register, unregister };
 	/**
