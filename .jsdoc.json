@@ -4,7 +4,7 @@
         "dictionaries": ["jsdoc"]
     },
     "source": {
-        "include": ["./src"]
+        "include": ["./src", "README.md"]
     },
     "plugins": [
         "plugins/markdown"
@@ -18,7 +18,7 @@
         }
     },
     "opts": {
-        "destination": "./docs/",
+        "destination": "./dist/",
         "encoding": "utf8",
         "private": true,
         "recurse": true,
