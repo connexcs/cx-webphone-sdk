@@ -11,7 +11,7 @@ module.exports = {
 	entry: './src/cxWebphone.js',
     plugins: [
         new JsDocPlugin({
-            conf: 'jsdoc.conf.js',
+            conf: '.jsdoc.json',
             cwd: './',
 //            preserveTmpFile: false,
 //            recursive: false
