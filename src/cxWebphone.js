@@ -100,7 +100,7 @@ export default function cxWebphone (containerId, src) {
 	 */
 
 	function call (destination) {
-		return _postPromise('call', destination);
+		return _postPromise('call', {destination});
 	}
 
 	/**
@@ -179,7 +179,7 @@ export default function cxWebphone (containerId, src) {
 	 */
 
 	function sendDTMF(tone) {
-		return _postPromise('sendDTMF', tone);
+		return _postPromise('sendDTMF', {tone});
 	}
 
 	/**
