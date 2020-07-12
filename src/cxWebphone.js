@@ -20,7 +20,7 @@ export default function cxWebphone (containerId, src) {
 	var src = null;
 	_init();
 
-	return { config, on, provision, invite, stop, register, unregister };
+	return { config, on, provision, call, answer, reject, hangup, mute, unmute, sendDTMF, register, unregister };
 	/**
 	 * Initalize the component (into an iframe).
 	 *
@@ -90,30 +90,96 @@ export default function cxWebphone (containerId, src) {
 	}
 
 	/**
-	 * Place an Outbound Call
+	 * Start a call with destination
 	 *
-	 * @param {string} Phone Number
+	 * @param {string} destination The destination endpoint that wish to call
 	 * @return {Promise} 
 	 *
 	 * @example
 	 *     phone.call('123456789');
 	 */
 
-	function invite (address) {
-		return _postPromise('invite', data);
+	function call (destination) {
+		return _postPromise('call', destination);
 	}
 
 	/**
-	 * Stop a call (HangUp / Reject / Cancel Ringing)
+	 * Mute the local media of a call
 	 *
 	 * @return {Promise} 
 	 *
 	 * @example
-	 *     phone.stop();
+	 *     phone.mute();
 	 */
 
-	function stop() {
-		return _postPromise('stop', data);
+	function mute () {
+		return _postPromise('mute');
+	}
+
+	/**
+	 * Unmute the local media of a call
+	 *
+	 * @return {Promise} 
+	 *
+	 * @example
+	 *     phone.unmute();
+	 */
+
+	function unmute () {
+		return _postPromise('unmute');
+	}
+
+	/**
+	 * Answer an incoming call
+	 *
+	 * @return {Promise} 
+	 *
+	 * @example
+	 *     phone.answer();
+	 */
+
+	function answer() {
+		return _postPromise('answer');
+	}
+
+	/**
+	 * Reject an incoming call
+	 *
+	 * @return {Promise} 
+	 *
+	 * @example
+	 *     phone.reject();
+	 */
+
+	function reject() {
+		return _postPromise('reject');
+	}
+
+	/**
+	 * Hangup a call
+	 *
+	 * @return {Promise} 
+	 *
+	 * @example
+	 *     phone.hangup();
+	 */
+
+	function hangup() {
+		return _postPromise('hangup');
+	}
+
+	/**
+	 * Send a (RFC 4733) DTMF event to the active call.
+	 *
+	 * @param {string} tone The tone that you want to send to the active call
+	 * @return {Promise} 
+	 *
+	 * @example
+	 *     phone.sendDTMF(tone);
+	 */
+
+	function sendDTMF(tone) {
+		return _postPromise('sendDTMF', tone);
 	}
 
 	/**
@@ -146,7 +212,7 @@ export default function cxWebphone (containerId, src) {
 		const id = Math.random() * 10000000;
 		return new Promise((resolve, reject) => {
 			promiseCallback[id] = {resolve, reject}
-			popup.postMessage({ id, containerId, data: {fn, ...data}}, src);
+			popup.postMessage({ id, containerId, fn, data, _type: 'webphone-sdk'}, src);
 		})
 	}
 	
