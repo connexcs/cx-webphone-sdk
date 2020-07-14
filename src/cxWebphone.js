@@ -171,7 +171,7 @@ export default function cxWebphone (containerId, src) {
 	/**
 	 * Send a (RFC 4733) DTMF event to the active call.
 	 *
-	 * @param {string} tone The tone that you want to send to the active call
+	 * @param {string} tone The tone that you want to send to the active call when a button is pressed (digits: 0-9, symbols: # *)
 	 * @return {Promise} 
 	 *
 	 * @example
@@ -185,9 +185,25 @@ export default function cxWebphone (containerId, src) {
 	/**
 	 * Perform a SIP Registration
 	 *
+	 * @param {object} [data] Optioanl Object to be used for Standalone mode, leave empty when provisioning
+	 * @param {string} [data.displayName] Friendly name
+	 * @param {string} [data.cli] From Number
+	 * @param {string} [data.username] Authentication Username
+	 * @param {string} [data.password] Authentication Password
+	 * @param {string} [data.wsServer] Server Address
+	 * @param {string} [data.realm] Realm
 	 * @return {Promise} 
 	 *
-	 * @example
+	 * @example <caption>Standalone Example.</caption>
+	 *     phone.register({
+	 *	      displayName": "",
+	 *        cli: null,
+	 *        username: "",
+	 *        password: "",
+	 *        wsServer:"",
+	 *        realm: ""
+	 *     });
+	 * @example <caption>Provision Example.</caption>
 	 *     phone.register();
 	 */
 
