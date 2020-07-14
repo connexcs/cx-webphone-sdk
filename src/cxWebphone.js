@@ -196,7 +196,7 @@ export default function cxWebphone (containerId, src) {
 	 *
 	 * @example <caption>Standalone Example.</caption>
 	 *     phone.register({
-	 *	      displayName": "",
+	 *        displayName": "",
 	 *        cli: null,
 	 *        username: "",
 	 *        password: "",
