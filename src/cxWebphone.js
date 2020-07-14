@@ -185,8 +185,8 @@ export default function cxWebphone (containerId, src) {
 	/**
 	 * Perform a SIP Registration
 	 *
-	 * @param {object} [data] Optioanl Object to be used for Standalone mode, leave empty when provisioning
-	 * @param {string} [data.displayName] Friendly name
+	 * @param {object} [data] Optional Object to be used for Standalone mode, leave empty when provisioning
+	 * @param {string} data.displayName Friendly name
 	 * @param {string} [data.cli] From Number
 	 * @param {string} [data.username] Authentication Username
 	 * @param {string} [data.password] Authentication Password
