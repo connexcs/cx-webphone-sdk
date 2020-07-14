@@ -187,11 +187,11 @@ export default function cxWebphone (containerId, src) {
 	 *
 	 * @param {object} [data] Optional Object to be used for Standalone mode, leave empty when provisioning
 	 * @param {string} data.displayName Friendly name
-	 * @param {string} [data.cli] From Number
-	 * @param {string} [data.username] Authentication Username
-	 * @param {string} [data.password] Authentication Password
-	 * @param {string} [data.wsServer] Server Address
-	 * @param {string} [data.realm] Realm
+	 * @param {string} data.cli From Number
+	 * @param {string} data.username Authentication Username
+	 * @param {string} data.password Authentication Password
+	 * @param {string} data.wsServer Server Address
+	 * @param {string} data.realm Realm
 	 * @return {Promise} 
 	 *
 	 * @example <caption>Standalone Example.</caption>
