@@ -43,21 +43,37 @@ Example Usage
 		<div id="error"></div>
 		<div id="cxPhone"></div>
 		<div>
-			<button onClick="phone && phone.call('160')">Call 160</button>
-			<button onClick="phone && phone.hangup()">Hang Up</button>
+			<button onClick="call('160')">Call 160</button>
+			<button onClick="hangup()">Hang Up</button>
 		</div>
 	</div>
 <div>
 <script src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
 <script>
+	var errMessage = document.getElementById('error');
 	var phone = null
 	async function start(url) {
 		try {
-			var errMessage = document.getElementById('error');
 			errMessage.innerHTML = '';
 			if (!url) throw new Error('URL is required')
 			// Ready to Init
-			var phone = cxWebphone('cxPhone', url);
+			phone = cxWebphone('cxPhone', url);
+		} catch (err) {
+			console.error(err)
+			errMessage.innerHTML = 	`Error: ${err.message}`;
+		}
+	}
+	function call (number) {
+		try {
+			phone.call(number)
+		} catch (err) {
+			console.error(err)
+			errMessage.innerHTML = 	`Error: ${err.message}`;
+		}
+	}
+	function hangup () {
+		try {
+			phone.hangup()
 		} catch (err) {
 			console.error(err)
 			errMessage.innerHTML = 	`Error: ${err.message}`;

@@ -34,8 +34,9 @@ module.exports = function cxWebphone (containerId, src) {
 		container = document.getElementById(containerId);
 		if (!container) throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 		const iframe = document.createElement('iframe');
-		iframe.style.display = "none";
 		iframe.src = src;
+		iframe.height = '300px'
+		iframe.width = '400px'
 		container.appendChild(iframe);
 
 		window.addEventListener("message", _receiveMessage, false);
