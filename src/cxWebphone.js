@@ -13,7 +13,7 @@
  * ```
  */
 
-export default function cxWebphone (containerId, src) {
+module.exports = function cxWebphone (containerId, src) {
 	const promiseCallback = {};
 	var containerId = null;
 	var container = null
