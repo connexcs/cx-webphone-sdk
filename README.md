@@ -48,7 +48,7 @@ Example Usage
 		</div>
 	</div>
 <div>
-<script>
+<script type="module">
 	import cxWebphone from 'https://webphone-sdk.connexcs.com/cx-webphone-sdk.js'
 	var phone = null
 	async function start(url) {
