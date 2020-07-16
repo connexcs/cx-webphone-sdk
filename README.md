@@ -29,6 +29,9 @@ Example Usage
 	width: 400px;
 	height: 600px;
 }
+#error {
+	color: red;
+}
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
@@ -55,8 +58,7 @@ Example Usage
 			// Ready to Init
 			var phone = cxWebphone('cxPhone', url);
 		} catch (err) {
-			console.log(err)
-			errMessage.innerHTML = err;
+			errMessage.innerHTML = err.message;
 		}
 	}
 </script>
