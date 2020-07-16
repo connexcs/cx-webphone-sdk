@@ -231,7 +231,7 @@ function cxWebphone (containerId, src) {
 		const id = Math.random() * 10000000;
 		return new Promise((resolve, reject) => {
 			promiseCallback[id] = {resolve, reject}
-			iframe.postMessage({ id, containerId, fn, data, _type: 'webphone-sdk'}, src);
+			iframe.contentWindow.postMessage({ id, containerId, fn, data, _type: 'webphone-sdk'}, src);
 		})
 	}
 	
