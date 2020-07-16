@@ -11,8 +11,8 @@ Example Usage
 	<head>
 		<title>WebPhone Example</title>
 	</head>
-	<div style="height:500px;width:500px"></div>
-	<script id="cxPhone" src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
+	<div id="cxPhone" style="height:300px;width:400px;"></div>
+	<script src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
 	<script>
 		window.addEventListener('DOMContentLoaded', () => {
 			// Ready to Init
@@ -27,7 +27,7 @@ Example Usage
 <style>
 #cxPhone {
 	width: 400px;
-	height: 600px;
+	height: 300px;
 }
 #error {
 	color: red;
