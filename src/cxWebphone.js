@@ -14,7 +14,7 @@
  */
 
 module.exports = function cxWebphone (containerId, src) {
-	if (!container || !typeof container === 'string') throw new Error(`Can\'t find <div id="${containerId}"></div>`)
+	if (!containerId || typeof containerId !== 'string') throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 	const promiseCallback = {};
 	var container = null
 	_init();
@@ -36,7 +36,7 @@ module.exports = function cxWebphone (containerId, src) {
 		const iframe = document.createElement('iframe');
 		iframe.style.display = "none";
 		iframe.src = src;
-		container.innerHTML = iframe;
+		container.appendChild(iframe);
 
 		window.addEventListener("message", _receiveMessage, false);
 	}
