@@ -48,8 +48,8 @@ Example Usage
 		</div>
 	</div>
 <div>
-<script type="module">
-	import cxWebphone from 'https://webphone-sdk.connexcs.com/cx-webphone-sdk.js'
+<script src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
+<script>
 	var phone = null
 	async function start(url) {
 		try {
