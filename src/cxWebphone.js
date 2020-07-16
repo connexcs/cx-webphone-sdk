@@ -14,6 +14,7 @@
  */
 
 module.exports = function cxWebphone (containerId, src) {
+	if (!container || !typeof container === 'string') throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 	const promiseCallback = {};
 	var container = null
 	_init();
@@ -31,12 +32,13 @@ module.exports = function cxWebphone (containerId, src) {
 	
 	function _init () {
 		container = document.getElementById(containerId);
+		if (!container) throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 		const iframe = document.createElement('iframe');
 		iframe.style.display = "none";
 		iframe.src = src;
 		container.innerHTML = iframe;
 
-		window.addEventListener("message", receiveMessage, false);
+		window.addEventListener("message", _receiveMessage, false);
 	}
 	
 	/**
