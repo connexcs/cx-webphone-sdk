@@ -53,6 +53,7 @@ Example Usage
 	var phone = null
 	async function start(url) {
 		try {
+			if (!url) throw new Error('URL is required')
 			var errMessage = document.getElementById('error');
 			errMessage.innerHTML = '';
 			// Ready to Init
