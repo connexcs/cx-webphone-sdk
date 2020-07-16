@@ -37,6 +37,7 @@ Example Usage
 	<a href='#' onClick="start(document.getElementById('url').value)">Start</a>
 -->
 	<div>
+		<div id="error"></div>
 		<div id="cxPhone"></div>
 		<div>
 			<button onClick="phone && phone.call('160')">Call 160</button>
@@ -49,11 +50,13 @@ Example Usage
 	var phone = null
 	async function start(url) {
 		try {
-			console.log('url : ', url)
+			var errMessage = document.getElementById('error');
+			errMessage.innerHTML = '';
 			// Ready to Init
 			var phone = cxWebphone('cxPhone', url);
 		} catch (err) {
-			alert(err)
+			console.log(err)
+			errMessage.innerHTML = err;
 		}
 	}
 </script>
