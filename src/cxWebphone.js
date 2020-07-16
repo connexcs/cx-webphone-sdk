@@ -15,9 +15,7 @@
 
 module.exports = function cxWebphone (containerId, src) {
 	const promiseCallback = {};
-	var containerId = null;
 	var container = null
-	var src = null;
 	_init();
 
 	return { config, on, provision, call, answer, reject, hangup, mute, unmute, sendDTMF, register, unregister };
