@@ -58,7 +58,7 @@ Example Usage
 			// Ready to Init
 			var phone = cxWebphone('cxPhone', url);
 		} catch (err) {
-			errMessage.innerHTML = err.message;
+			errMessage.innerHTML = 	`Error: ${err.message}`;
 		}
 	}
 </script>
