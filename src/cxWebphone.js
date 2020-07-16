@@ -34,7 +34,7 @@ module.exports = function cxWebphone (containerId, src) {
 		const iframe = document.createElement('iframe');
 		iframe.style.display = "none";
 		iframe.src = src;
-		containerElement.innerHTML(iframe);
+		container.innerHTML(iframe);
 
 		window.addEventListener("message", receiveMessage, false);
 	}
