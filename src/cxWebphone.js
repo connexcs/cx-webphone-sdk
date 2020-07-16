@@ -13,10 +13,11 @@
  * ```
  */
 
-module.exports = function cxWebphone (containerId, src) {
+function cxWebphone (containerId, src) {
 	if (!containerId || typeof containerId !== 'string') throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 	const promiseCallback = {};
 	var container = null
+	var iframe = null
 	_init();
 
 	return { config, on, provision, call, answer, reject, hangup, mute, unmute, sendDTMF, register, unregister };
@@ -33,7 +34,7 @@ module.exports = function cxWebphone (containerId, src) {
 	function _init () {
 		container = document.getElementById(containerId);
 		if (!container) throw new Error(`Can\'t find <div id="${containerId}"></div>`)
-		const iframe = document.createElement('iframe');
+		iframe = document.createElement('iframe');
 		iframe.src = src;
 		iframe.height = '300px'
 		iframe.width = '400px'
@@ -230,7 +231,7 @@ module.exports = function cxWebphone (containerId, src) {
 		const id = Math.random() * 10000000;
 		return new Promise((resolve, reject) => {
 			promiseCallback[id] = {resolve, reject}
-			popup.postMessage({ id, containerId, fn, data, _type: 'webphone-sdk'}, src);
+			iframe.postMessage({ id, containerId, fn, data, _type: 'webphone-sdk'}, src);
 		})
 	}
 	
@@ -250,3 +251,5 @@ module.exports = function cxWebphone (containerId, src) {
 		}
 	}
 }
+
+module.exports = cxWebphone
