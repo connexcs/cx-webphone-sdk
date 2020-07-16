@@ -63,9 +63,10 @@ Example Usage
 			errMessage.innerHTML = 	`Error: ${err.message}`;
 		}
 	}
-	function call (number) {
+	async function call (number) {
 		try {
-			phone.call(number)
+			let result = phone.call(number)
+			console.log(result)
 		} catch (err) {
 			console.error(err)
 			errMessage.innerHTML = 	`Error: ${err.message}`;
@@ -73,7 +74,8 @@ Example Usage
 	}
 	function hangup () {
 		try {
-			phone.hangup()
+			let result = phone.hangup()
+			console.log(result)
 		} catch (err) {
 			console.error(err)
 			errMessage.innerHTML = 	`Error: ${err.message}`;

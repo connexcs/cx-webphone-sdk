@@ -38,6 +38,7 @@ function cxWebphone (containerId, src) {
 		iframe.src = src;
 		iframe.height = '300px'
 		iframe.width = '400px'
+		iframe.allow = "microphone"
 		// iframe.style.display = "none";
 		container.appendChild(iframe);
 
