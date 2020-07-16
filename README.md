@@ -53,9 +53,9 @@ Example Usage
 	var phone = null
 	async function start(url) {
 		try {
-			if (!url) throw new Error('URL is required')
 			var errMessage = document.getElementById('error');
 			errMessage.innerHTML = '';
+			if (!url) throw new Error('URL is required')
 			// Ready to Init
 			var phone = cxWebphone('cxPhone', url);
 		} catch (err) {
