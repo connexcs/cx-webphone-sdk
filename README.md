@@ -39,18 +39,22 @@ Example Usage
 	<div>
 		<div id="cxPhone"></div>
 		<div>
-			<a href='#' onClick="phone && phone.call('160')">Call 160</a>
-			<a href='#' onClick="phone && phone.hangup()">Hang Up</a>
+			<button onClick="phone && phone.call('160')">Call 160</button>
+			<button onClick="phone && phone.hangup()">Hang Up</button>
 		</div>
 	</div>
 <div>
 
 <script>
 	var phone = null
-	function start(url) {
-		console.log('url : ', url)
-		// Ready to Init
-		var phone = cxWebphone('cxPhone', url);
+	async function start(url) {
+		try {
+			console.log('url : ', url)
+			// Ready to Init
+			var phone = cxWebphone('cxPhone', url);
+		} catch (err) {
+			alert(err)
+		}
 	}
 </script>
 <!-- Live Example Script End -->
