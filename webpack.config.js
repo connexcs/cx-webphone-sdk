@@ -21,7 +21,7 @@ module.exports = {
 		filename: 'cx-webphone-sdk.js',
 		path: path.resolve(__dirname, 'dist'),
 		library: 'cxWebphone',
-		scriptType: 'text/javascript'
+		jsonpScriptType: 'text/javascript'
 	},
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
