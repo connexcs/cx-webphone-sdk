@@ -30,6 +30,7 @@ Example Usage
 #cxPhone {
 	width: 400px;
 	height: 300px;
+	display: inline-block;
 }
 input {
 	width: 30%;
@@ -74,8 +75,8 @@ input {
 		try {
 			output.innerHTML = 	`Running Function call(${number})`;
 			let result = await phone.call(number)
-			console.log(result)
 			output.innerHTML = 	`Function call Complete\n` + JSON.stringify(result, null, 4);
+			output.style.color = "#000";
 		} catch (err) {
 			console.error(err)
 			output.innerHTML = 	`Error: ${err.message}`;
@@ -86,8 +87,8 @@ input {
 		try {
 			output.innerHTML = '';
 			let result = await phone.hangup()
-			console.log(result)
 			output.innerHTML = `Call ended\n` + JSON.stringify(result, null, 4);
+			output.style.color = "#000";
 		} catch (err) {
 			console.error(err)
 			output.innerHTML = 	`Error: ${err.message}`;

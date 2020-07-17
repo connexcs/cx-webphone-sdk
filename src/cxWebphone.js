@@ -61,16 +61,33 @@ function cxWebphone (containerId, src) {
 	}
 
 	/**
+	 * Enum string values.
+	 * @enum {string}
+	 */
+	const EventsEnum = {
+		'session-idle': 'session-Idle',
+		'session-initial': 'session-initial',
+		'session-establising': 'session-establising',
+		'session-established': 'session-established',
+		'session-terminating': 'session-terminating',
+		'session-terminated': 'session-terminated',
+		'register-initial': 'register-initial',
+		'register-registered': 'register-registered',
+		'register-unregistered': 'register-unregistered',
+		'register-terminated': 'register-terminated'
+	};
+
+	/**
 	 * Add Event Listener
 	 *
-	 * @param {string} Event Name
-	 * @param {*} Event Data
+	 * @param {EventsEnum} Event Name
+	 * @param {requestCallback} callback Function to handle event
 	 *
 	 * @example
-	 *     phone.on('ringing', myRingingFunction);
-	 *     phone.on('err', myErrFunction);
-	 *     phone.on('statusChanged', myStatusChanged);
-	 *     phone.on('cdr', myCdrFunction);
+	 *     phone.on('session-ringing', myRingingFunction);
+	 *     phone.on('session-answered', myAnsweredFunction);
+	 *     phone.on('register-registered', myRegistrationFunction);
+	 *     phone.on('register-unregistered', myUnregisterFunction);
 	 */
 
 	function on (name, fn) {
@@ -240,11 +257,8 @@ function cxWebphone (containerId, src) {
 	function _receiveMessage (e) {
 		console.log('e ', e)
 		var wrap = e.data;
-		if (!wrap.containerId || wrap.containerId != containerId) return
-		console.log('containerId: ', containerId)
-		console.log('wrap ', wrap)
+		if (!wrap.containerId || wrap.containerId != containerId || wrap.containerId === '*') return
 		if (wrap.id && promiseCallback[wrap.id]) {
-			console.log('callback')
 			if (wrap.error) {
 				promiseCallback[wrap.id].reject(new Error(wrap.error))
 			} else {
