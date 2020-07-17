@@ -53,6 +53,9 @@ input {
 	width: 30%;
 	height: 29px;
 }
+#cxPhone:empty {
+   display: none;
+}
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
