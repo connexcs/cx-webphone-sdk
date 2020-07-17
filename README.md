@@ -22,29 +22,31 @@ Example Usage
 </html>
 ```
 
-
 <!-- Live Example Script Start -->
 <style>
+#cxPhone:empty {
+   display: none;
+}
 #cxPhone {
 	width: 400px;
 	height: 300px;
 }
+input {
+	width: 30%;
+}
 #error {
 	color: #f44336;
-}
-#cxPhone:empty {
-   display: none;
 }
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
-	<button class="button success" onclick="start(document.getElementById('url').value)">Start</button>
+	<button onclick="start(document.getElementById('url').value)">Start</button>
 	<div>
 		<div id="error"></div>
 		<div id="cxPhone"></div>
-		<div>
-			<button class="button success" onClick="call('160')">Call 160</button>
-			<button class="button danger" onClick="hangup()">Hang Up</button>
+		<div id="isButtons">
+			<button onClick="call('160')">Call 160</button>
+			<button onClick="hangup()">Hang Up</button>
 		</div>
 	</div>
 <div>
@@ -55,9 +57,12 @@ Example Usage
 	async function start(url) {
 		try {
 			errMessage.innerHTML = '';
-			if (!url) throw new Error('URL is required')
+			var isButton = document.getElementById('isButtons');
+			isButton.style.display = 'none';
+			if (!url) throw new Error('URL is required');
 			// Ready to Init
 			phone = cxWebphone('cxPhone', url);
+			isButton.style.display = 'block';
 		} catch (err) {
 			console.error(err)
 			errMessage.innerHTML = 	`Error: ${err.message}`;
