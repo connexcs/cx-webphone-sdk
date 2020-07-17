@@ -238,7 +238,7 @@ function cxWebphone (containerId, src) {
 	}
 	
 	function _receiveMessage (e) {
-		console.log('e ', { ...e })
+		console.log('e ', e)
 		var wrap = e.data;
 		if (!wrap.containerId || wrap.containerId != containerId) return
 		console.log('containerId: ', containerId)
