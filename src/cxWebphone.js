@@ -238,9 +238,13 @@ function cxWebphone (containerId, src) {
 	}
 	
 	function _receiveMessage (e) {
+		console.log('e ', { ...e })
 		var wrap = e.data;
 		if (!wrap.containerId || wrap.containerId != containerId) return
+		console.log('containerId: ', containerId)
+		console.log('wrap ', wrap)
 		if (wrap.id && promiseCallback[wrap.id]) {
+			console.log('callback')
 			if (wrap.error) {
 				promiseCallback[wrap.id].reject(new Error(wrap.error))
 			} else {
@@ -248,6 +252,7 @@ function cxWebphone (containerId, src) {
 			}
 			delete promiseCallback[wrap.id]
 		} else if (wrap.event) {
+			console.log('wrap.event: ', wrap.event)
 			const event = new CustomEvent(wrap.event, wrap.data);			
 			container.dispatchEvent(event);
 		}

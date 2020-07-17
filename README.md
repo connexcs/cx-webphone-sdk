@@ -84,9 +84,10 @@ input {
 	}
 	async function hangup () {
 		try {
+			output.innerHTML = '';
 			let result = await phone.hangup()
 			console.log(result)
-			output.innerHTML = 	`Call ended\n` + JSON.stringify(result, null, 4);
+			output.innerHTML = `Call ended\n` + JSON.stringify(result, null, 4);
 		} catch (err) {
 			console.error(err)
 			output.innerHTML = 	`Error: ${err.message}`;
