@@ -34,6 +34,9 @@ Example Usage
 input {
 	width: 30%;
 }
+#error {
+	color: #f44336;
+}
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
@@ -71,8 +74,8 @@ input {
 		try {
 			output.innerHTML = 	`Running Function call(${number})`;
 			let result = phone.call(number)
-			output.innerHTML = 	`Function call Complete\n` + JSON.stringify(result, null, 4);
 			console.log(result)
+			output.innerHTML = 	`Function call Complete\n` + JSON.stringify(result, null, 4);
 		} catch (err) {
 			console.error(err)
 			output.innerHTML = 	`Error: ${err.message}`;
@@ -82,8 +85,8 @@ input {
 	function hangup () {
 		try {
 			let result = phone.hangup()
-			output.innerHTML = 	`Call ended\n` + JSON.stringify(result, null, 4);
 			console.log(result)
+			output.innerHTML = 	`Call ended\n` + JSON.stringify(result, null, 4);
 		} catch (err) {
 			console.error(err)
 			output.innerHTML = 	`Error: ${err.message}`;
