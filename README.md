@@ -53,11 +53,12 @@ input {
 <script src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
 <script>
 	var errMessage = document.getElementById('error');
+	var isButton = document.getElementById('isButtons');
 	var phone = null
+	isButton.style.display = 'none';
 	async function start(url) {
 		try {
 			errMessage.innerHTML = '';
-			var isButton = document.getElementById('isButtons');
 			isButton.style.display = 'none';
 			if (!url) throw new Error('URL is required');
 			// Ready to Init
