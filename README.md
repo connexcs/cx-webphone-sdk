@@ -43,22 +43,26 @@ Example Usage
 .success {
 	background-color: #4CAF50;
 }
-.error {
+.danger {
+	background-color: #f44336;
+}
+#error {
 	color: #f44336;
+}
+input {
+	width: 30%;
+	height: 29px;
 }
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
 	<button class="button success" onclick="start(document.getElementById('url').value)">Start</button>
-<!--
-	<a href='#' onClick="start(document.getElementById('url').value)">Start</a>
--->
 	<div>
-		<div id="error" class="error"></div>
+		<div id="error"></div>
 		<div id="cxPhone"></div>
 		<div>
 			<button class="button success" onClick="call('160')">Call 160</button>
-			<button class="button error" onClick="hangup()">Hang Up</button>
+			<button class="button danger" onClick="hangup()">Hang Up</button>
 		</div>
 	</div>
 <div>
