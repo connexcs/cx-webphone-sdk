@@ -42,7 +42,7 @@ input {
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
 	<button onclick="start(document.getElementById('url').value)">Start</button>
 	<div>
-		<div id="output"></div>
+		<pre id="output"></pre>
 		<div id="cxPhone"></div>
 		<div id="isButtons">
 			<button onClick="call('160')">Call 160</button>
@@ -73,7 +73,7 @@ input {
 	async function call (number) {
 		try {
 			output.innerHTML = 	`Running Function call(${number})`;
-			let result = phone.call(number)
+			let result = await phone.call(number)
 			console.log(result)
 			output.innerHTML = 	`Function call Complete\n` + JSON.stringify(result, null, 4);
 		} catch (err) {
@@ -82,9 +82,9 @@ input {
 			output.style.color = "#f44336";
 		}
 	}
-	function hangup () {
+	async function hangup () {
 		try {
-			let result = phone.hangup()
+			let result = await phone.hangup()
 			console.log(result)
 			output.innerHTML = 	`Call ended\n` + JSON.stringify(result, null, 4);
 		} catch (err) {
