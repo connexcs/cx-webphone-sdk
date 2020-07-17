@@ -29,22 +29,36 @@ Example Usage
 	width: 400px;
 	height: 300px;
 }
-#error {
-	color: red;
+.button {
+	border: none;
+	color: white;
+	padding: 5px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.success {
+	background-color: #4CAF50;
+}
+.error {
+	color: #f44336;
 }
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
-	<button onclick="start(document.getElementById('url').value)">Start</button>
+	<button class="button success" onclick="start(document.getElementById('url').value)">Start</button>
 <!--
 	<a href='#' onClick="start(document.getElementById('url').value)">Start</a>
 -->
 	<div>
-		<div id="error"></div>
+		<div id="error" class="error"></div>
 		<div id="cxPhone"></div>
 		<div>
-			<button onClick="call('160')">Call 160</button>
-			<button onClick="hangup()">Hang Up</button>
+			<button class="button success" onClick="call('160')">Call 160</button>
+			<button class="button error" onClick="hangup()">Hang Up</button>
 		</div>
 	</div>
 <div>
