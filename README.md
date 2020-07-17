@@ -29,29 +29,8 @@ Example Usage
 	width: 400px;
 	height: 300px;
 }
-.button {
-	border: none;
-	color: white;
-	padding: 5px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
-}
-.success {
-	background-color: #4CAF50;
-}
-.danger {
-	background-color: #f44336;
-}
 #error {
 	color: #f44336;
-}
-input {
-	width: 30%;
-	height: 29px;
 }
 #cxPhone:empty {
    display: none;
