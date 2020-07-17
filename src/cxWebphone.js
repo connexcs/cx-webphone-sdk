@@ -60,27 +60,11 @@ function cxWebphone (containerId, src) {
 		return _postPromise('config', data);
 	}
 
-	/**
-	 * Enum string values.
-	 * @enum {string}
-	 */
-	const EventsEnum = {
-		'session-idle': 'session-Idle',
-		'session-initial': 'session-initial',
-		'session-establising': 'session-establising',
-		'session-established': 'session-established',
-		'session-terminating': 'session-terminating',
-		'session-terminated': 'session-terminated',
-		'register-initial': 'register-initial',
-		'register-registered': 'register-registered',
-		'register-unregistered': 'register-unregistered',
-		'register-terminated': 'register-terminated'
-	};
 
 	/**
 	 * Add Event Listener
 	 *
-	 * @param {EventsEnum} Event Name
+	 * @param {('session-idle'|'session-initial'|'session-establising'|'session-established'|'session-terminating'|'session-terminated'|'register-initial'|'register-registered'|'register-unregistered'|'register-terminated'|'cdr')} name Event Name
 	 * @param {requestCallback} callback Function to handle event
 	 *
 	 * @example
