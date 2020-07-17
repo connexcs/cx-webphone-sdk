@@ -34,15 +34,12 @@ Example Usage
 input {
 	width: 30%;
 }
-#error {
-	color: #f44336;
-}
 </style>
 <div>
 	Enter your ConnexCS Portal URL <input id="url" name="url"/>
 	<button onclick="start(document.getElementById('url').value)">Start</button>
 	<div>
-		<div id="error"></div>
+		<div id="output"></div>
 		<div id="cxPhone"></div>
 		<div id="isButtons">
 			<button onClick="call('160')">Call 160</button>
@@ -52,13 +49,13 @@ input {
 <div>
 <script src="https://webphone-sdk.connexcs.com/cx-webphone-sdk.js"></script>
 <script>
-	var errMessage = document.getElementById('error');
+	var output = document.getElementById('output');
 	var isButton = document.getElementById('isButtons');
 	var phone = null
 	isButton.style.display = 'none';
 	async function start(url) {
 		try {
-			errMessage.innerHTML = '';
+			output.innerHTML = '';
 			isButton.style.display = 'none';
 			if (!url) throw new Error('URL is required');
 			// Ready to Init
@@ -66,25 +63,31 @@ input {
 			isButton.style.display = 'block';
 		} catch (err) {
 			console.error(err)
-			errMessage.innerHTML = 	`Error: ${err.message}`;
+			output.innerHTML = 	`Error: ${err.message}`;
+			output.style.color = "#f44336";
 		}
 	}
 	async function call (number) {
 		try {
+			output.innerHTML = 	`Running Function call(${number})`;
 			let result = phone.call(number)
+			output.innerHTML = 	`Function call Complete\n` + JSON.stringify(result, null, 4);
 			console.log(result)
 		} catch (err) {
 			console.error(err)
-			errMessage.innerHTML = 	`Error: ${err.message}`;
+			output.innerHTML = 	`Error: ${err.message}`;
+			output.style.color = "#f44336";
 		}
 	}
 	function hangup () {
 		try {
 			let result = phone.hangup()
+			output.innerHTML = 	`Call ended\n` + JSON.stringify(result, null, 4);
 			console.log(result)
 		} catch (err) {
 			console.error(err)
-			errMessage.innerHTML = 	`Error: ${err.message}`;
+			output.innerHTML = 	`Error: ${err.message}`;
+			output.style.color = "#f44336";
 		}
 	}
 </script>
