@@ -33,6 +33,7 @@ function cxWebphone (containerId, src) {
 	
 	function _init () {
 		container = document.getElementById(containerId);
+		container.innerHTML = '';
 		if (!container) throw new Error(`Can\'t find <div id="${containerId}"></div>`)
 		iframe = document.createElement('iframe');
 		iframe.src = src;
